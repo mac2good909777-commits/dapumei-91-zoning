@@ -45,9 +45,13 @@ def toc(html):
     return html, nav
 
 
+titleE, htmlE = render("E.md")
+titleD, htmlD = render("D.md")
 titleC, htmlC = render("C.md")
 titleA, htmlA = render("A.md")
 titleB, htmlB = render("B.md")
+htmlE, navE = toc(htmlE)
+htmlD, navD = toc(htmlD)
 htmlC, navC = toc(htmlC)
 htmlA, navA = toc(htmlA)
 htmlB, navB = toc(htmlB)
@@ -133,7 +137,9 @@ footer{margin-top:34px;font-size:12.5px;color:var(--mute);text-align:center}
   <h1>大埔美精密機械園區．園區三路29號（大工一段91地號）<br>行業別進駐法規依據與管理處詢問備忘錄</h1>
   <p class="meta">瑞禾不動產經紀股份有限公司　張現傑 業務總監　｜　2026-09-02</p>
   <div class="tabs" role="tablist">
-    <button role="tab" aria-selected="true" data-t="C">C．進駐可行性洽詢事項</button>
+    <button role="tab" aria-selected="true" data-t="E">E．致買方摘要</button>
+    <button role="tab" aria-selected="false" data-t="D">D．洽詢結果與函稿</button>
+    <button role="tab" aria-selected="false" data-t="C">C．洽詢事項</button>
     <button role="tab" aria-selected="false" data-t="A">A．法規依據與預審程序</button>
     <button role="tab" aria-selected="false" data-t="B">B．詢問備忘錄（完整版）</button>
   </div>
@@ -142,7 +148,17 @@ footer{margin-top:34px;font-size:12.5px;color:var(--mute);text-align:center}
 <div class="wrap">
   <p class="note"><strong>使用說明：</strong>C 卷為對外洽詢用；A、B 兩卷含內部評估與契約建議，僅供專案成員參考，請勿轉發。</p>
 
-  <section data-p="C">
+  <section data-p="E">
+    <nav class="toc">__NAVE__</nav>
+    <article>__E__</article>
+  </section>
+
+  <section data-p="D" hidden>
+    <nav class="toc">__NAVD__</nav>
+    <article>__D__</article>
+  </section>
+
+  <section data-p="C" hidden>
     <nav class="toc">__NAVC__</nav>
     <article>__C__</article>
   </section>
@@ -170,7 +186,7 @@ function show(k){
   window.scrollTo(0,0);
 }
 btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);});});
-try{var k=localStorage.getItem('dpm91tab'); if(k==='A'||k==='B'){show(k);}}catch(e){}
+try{var k=localStorage.getItem('dpm91tab'); if(k&&k!=='E'){show(k);}}catch(e){}
 </script>
 </body>
 </html>
@@ -183,6 +199,8 @@ out = (
     .replace("__NAVB__", navB)
     .replace("__C__", htmlC)
     .replace("__NAVC__", navC)
+    .replace("__E__", htmlE).replace("__NAVE__", navE)
+    .replace("__D__", htmlD).replace("__NAVD__", navD)
 )
 with io.open("index.html", "w", encoding="utf-8") as f:
     f.write(out)
