@@ -133,7 +133,7 @@ footer{margin-top:34px;font-size:12.5px;color:var(--mute);text-align:center}
   <h1>大埔美精密機械園區．園區三路29號（大工一段91地號）<br>行業別進駐法規依據與管理處詢問備忘錄</h1>
   <p class="meta">瑞禾不動產經紀股份有限公司　張現傑 業務總監　｜　2026-09-02</p>
   <div class="tabs" role="tablist">
-    <button role="tab" aria-selected="true" data-t="C">C．口頭詢問重點（簡易版）</button>
+    <button role="tab" aria-selected="true" data-t="C">C．口頭詢問重點（五個生死題）</button>
     <button role="tab" aria-selected="false" data-t="A">A．法規依據與預審程序</button>
     <button role="tab" aria-selected="false" data-t="B">B．詢問備忘錄（完整版）</button>
   </div>
