@@ -4,23 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="color-scheme" content="light">
 <title>大埔美園區三路29號｜行業別進駐法規與詢問備忘錄</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+/* 固定淺色：不隨系統深色模式變動 */
 :root{
+  color-scheme:light only;
   --bg:#f6f7f9; --card:#fff; --ink:#1c2430; --mute:#5d6b7e; --line:#e2e6ec;
   --accent:#0f4c81; --accent-soft:#e8f0f8; --warn:#b3541e; --warn-soft:#fdf1e6;
   --ok:#1f6f4a; --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#12161c; --card:#1a2029; --ink:#e6ebf2; --mute:#93a1b5; --line:#2b3441;
-    --accent:#7fb3e0; --accent-soft:#1d2c3c; --warn:#e9a06a; --warn-soft:#33241a;
-    --ok:#6fc79b;
-  }
-}
+html{color-scheme:light only;background:#f6f7f9}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
   font-family:"Noto Sans TC",-apple-system,"Segoe UI","Microsoft JhengHei",sans-serif;
