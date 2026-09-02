@@ -45,8 +45,10 @@ def toc(html):
     return html, nav
 
 
+titleC, htmlC = render("C.md")
 titleA, htmlA = render("A.md")
 titleB, htmlB = render("B.md")
+htmlC, navC = toc(htmlC)
 htmlA, navA = toc(htmlA)
 htmlB, navB = toc(htmlB)
 
@@ -131,15 +133,21 @@ footer{margin-top:34px;font-size:12.5px;color:var(--mute);text-align:center}
   <h1>大埔美精密機械園區．園區三路29號（大工一段91地號）<br>行業別進駐法規依據與管理處詢問備忘錄</h1>
   <p class="meta">瑞禾不動產經紀股份有限公司　張現傑 業務總監　｜　2026-09-02</p>
   <div class="tabs" role="tablist">
-    <button role="tab" aria-selected="true" data-t="A">A．法規依據與預審程序</button>
-    <button role="tab" aria-selected="false" data-t="B">B．管理處詢問備忘錄（匿名版）</button>
+    <button role="tab" aria-selected="true" data-t="C">C．口頭詢問重點（簡易版）</button>
+    <button role="tab" aria-selected="false" data-t="A">A．法規依據與預審程序</button>
+    <button role="tab" aria-selected="false" data-t="B">B．詢問備忘錄（完整版）</button>
   </div>
 </div></header>
 
 <div class="wrap">
   <p class="note"><strong>機密：</strong>本頁為內部作業文件，含買方評估資料與議價策略，僅供專案成員使用，請勿轉發或公開連結。</p>
 
-  <section data-p="A">
+  <section data-p="C">
+    <nav class="toc">__NAVC__</nav>
+    <article>__C__</article>
+  </section>
+
+  <section data-p="A" hidden>
     <nav class="toc">__NAVA__</nav>
     <article>__A__</article>
   </section>
@@ -162,7 +170,7 @@ function show(k){
   window.scrollTo(0,0);
 }
 btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);});});
-try{var k=localStorage.getItem('dpm91tab'); if(k){show(k);}}catch(e){}
+try{var k=localStorage.getItem('dpm91tab'); if(k==='A'||k==='B'){show(k);}}catch(e){}
 </script>
 </body>
 </html>
@@ -173,6 +181,8 @@ out = (
     .replace("__B__", htmlB)
     .replace("__NAVA__", navA)
     .replace("__NAVB__", navB)
+    .replace("__C__", htmlC)
+    .replace("__NAVC__", navC)
 )
 with io.open("index.html", "w", encoding="utf-8") as f:
     f.write(out)
